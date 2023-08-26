@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "instagram-react-native",
-    "slug": "instagram-react-native",
+    "name": "netflix-react-native",
+    "slug": "netflix-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,9 +11,8 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "expo.web.bundler": "metro",
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
