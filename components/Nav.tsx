@@ -1,12 +1,5 @@
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Animated,
-  Pressable,
-} from "react-native";
-import React, { useEffect } from "react";
+import { Image, StyleSheet, Animated, Pressable } from "react-native";
+import React from "react";
 
 const Nav = ({ opacity, navigation }) => {
   return (

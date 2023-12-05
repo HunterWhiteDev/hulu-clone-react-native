@@ -10,10 +10,9 @@ import MovieScreen from "./screens/MovieScreen";
 import { login, logout, selectUser } from "./slices/userSlice";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./stores/store";
-import { onAuthStateChanged, getAuth } from "firebase/auth";
-import { app } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { app, auth } from "./firebase";
 import { RootSiblingParent } from "react-native-root-siblings";
-import Toast from "react-native-root-toast";
 import ProfileScreen from "./screens/ProfileScreen";
 function Stacks() {
   const Stack = createStackNavigator();
@@ -22,7 +21,6 @@ function Stacks() {
   const user = useSelector(selectUser);
 
   useEffect(() => {
-    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, async (userAuth) => {
       if (userAuth) {
         const userToken = await userAuth.getIdToken();

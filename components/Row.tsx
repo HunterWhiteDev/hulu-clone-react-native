@@ -2,14 +2,16 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   Image,
   FlatList,
   Pressable,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import movieTrailer from "movie-trailer";
+import { LogBox } from "react-native";
 
+LogBox.ignoreLogs(["movie-trailer"]);
 const Row = ({ url, title, base_url, navigation }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +19,19 @@ const Row = ({ url, title, base_url, navigation }) => {
   useEffect(() => {
     const getMovies = async () => {
       const response = await axios.get(url);
-      setMovies(response.data.results);
+      const moviesRes = response.data.results;
+      console.log(moviesRes);
+      let moviesArr = [];
+      for (const movie of moviesRes) {
+        const urlRes = await movieTrailer(`${movie.title || movie.name}`);
+
+        if (urlRes) {
+          const index = urlRes.lastIndexOf("v=");
+          const trailerUrl = urlRes.slice(index + 2, urlRes.length);
+          moviesArr.push({ ...movie, trailerUrl });
+        }
+      }
+      setMovies(moviesArr);
       setIsLoading(false);
     };
 
@@ -56,8 +70,7 @@ const Row = ({ url, title, base_url, navigation }) => {
       ) : (
         <FlatList
           horizontal={true}
-          style={styles.movies}
-          data={movies}
+          data={movies.splice(0, 3)}
           renderItem={({ item }) => <MoviePoster movie={item} />}
           keyExtractor={(movie) => movie.id}
           extraData={isLoading}
@@ -69,7 +82,7 @@ const Row = ({ url, title, base_url, navigation }) => {
 
 export default Row;
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   row: {
     margin: 5,
     marginTop: 25,

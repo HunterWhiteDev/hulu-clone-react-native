@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     position: "relative",
     width: "75%",
     alignSelf: "center",
-    marginTop: 25,
     borderRadius: 5,
     zIndex: 1,
     elevation: 1,

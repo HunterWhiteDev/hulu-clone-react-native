@@ -5,22 +5,25 @@ import {
   ScrollView,
   Image,
   Pressable,
+  ScrollViewComponent,
 } from "react-native";
 import React, { useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import { FlatList } from "react-native";
+import YoutubeIframe from "react-native-youtube-iframe";
 const MovieScreen = ({ route: { params }, navigation }) => {
   const { movie, related } = params;
-  const { url, title, name, overview } = movie;
+  const { url, title, name, overview, trailerUrl } = movie;
   const base_url = "https://image.tmdb.org/t/p/original";
 
-  const scrollRef = useRef();
+  const scrollRef = useRef<ScrollView>();
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({
-      y: 0,
-      animated: true,
-    });
+    if (scrollRef.current)
+      scrollRef.current?.scrollTo({
+        y: 0,
+        animated: true,
+      });
   }, [movie]);
 
   const MoviePoster = ({ movie, movies }) => {
@@ -52,6 +55,7 @@ const MovieScreen = ({ route: { params }, navigation }) => {
       <ScrollView ref={scrollRef}>
         <View>
           <Image style={styles.banner} source={{ uri: url }} />
+          {/* <YoutubeIframe videoId={trailerUrl} play height={100} /> */}
           <View style={styles.overlay} />
           <Text style={styles.heading}>{title || name}</Text>
           <Pressable style={{ ...styles.button, bottom: 65 }}>
@@ -85,7 +89,7 @@ const MovieScreen = ({ route: { params }, navigation }) => {
         <View>
           <FlatList
             scrollEnabled={false}
-            data={related}
+            data={related.splice(0, 3)}
             renderItem={({ item }) => (
               <MoviePoster
                 navigation={navigation}

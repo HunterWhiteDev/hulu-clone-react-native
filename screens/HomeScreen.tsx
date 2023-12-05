@@ -1,17 +1,9 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  Animated,
-  Image,
-} from "react-native";
+import { View, StyleSheet, Animated } from "react-native";
 import Banner from "../components/Banner";
 import requests from "../requests";
 import Row from "../components/Row";
 import Nav from "../components/Nav";
 import { StatusBar } from "expo-status-bar";
-// import { StatusBar } from "expo-status-bar";
 export default function HomeScreen({ navigation }) {
   const base_url = "https://image.tmdb.org/t/p/original";
 

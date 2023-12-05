@@ -1,7 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
-  Button,
   Image,
   ImageBackground,
   StyleSheet,
@@ -10,17 +8,10 @@ import {
   View,
   Pressable,
 } from "react-native";
-// import Toast from "react-native-root-toast";
-// import { login, signUp, auth } from "../firebase";
+import { login, signUp, auth } from "../firebase";
 export default function LoginScreen() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
-  // Toast.show("TEST", {
-  //   duration: 10000,
-  //   backgroundColor: "red",
-  //   textColor: "white",
-  // });
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const signIn = () => {
     login(auth, email, password)
@@ -64,13 +55,13 @@ export default function LoginScreen() {
         <TextInput
           style={styles.textInput}
           placeholder="email"
-          onChangeText={(e) => setEmail(e)}
+          onChangeText={(e: string) => setEmail(e)}
         />
         <TextInput
           secureTextEntry={true}
           style={styles.textInput}
           placeholder="password"
-          onChangeText={(e) => setPassword(e)}
+          onChangeText={(e: string) => setPassword(e)}
         />
 
         <Pressable onPress={signIn} style={styles.button}>
