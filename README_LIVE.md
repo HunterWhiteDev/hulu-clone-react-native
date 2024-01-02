@@ -1,14 +1,22 @@
-### `Home Page`
+# Getting Started
 
-Select where you want to travel from.
-![Home Page!](https://i.imgur.com/c74wX4e.png)
+To login, use the following credentials:
 
-### `Where Page`
+email/username: `123@test.com`
 
-Choose where you want to go.
-![where!](https://i.imgur.com/U0rmvr8.png)
+password: `password`
 
-### `Map`
+### `Login`
 
-See the distance and time to your destination.
-![map!](https://i.imgur.com/WrFcNUz.png)
+Login to your account.
+![login!](https://i.imgur.com/XhtIsH7.png)
+
+### `Movies`
+
+Look at available movies and TV shows.
+![movies!](https://i.imgur.com/XhtIsH7.png)
+
+### `Movie Screen`
+
+View a movie and related titles.
+![movie!](https://i.imgur.com/XACwrSC.png)
