@@ -13,7 +13,7 @@ const Nav = ({ opacity, navigation }) => {
         <Image
           style={{ ...styles.image, height: 50, width: 30 }}
           source={{
-            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/1128px-Netflix_2015_N_logo.svg.png",
+            uri: "https://cdn.iconscout.com/icon/free/png-512/free-hulu-logo-icon-svg-png-download-2944940.png?f=webp&w=512",
           }}
         />
       </Pressable>

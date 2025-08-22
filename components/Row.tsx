@@ -70,7 +70,7 @@ const Row = ({ url, title, base_url, navigation }) => {
       ) : (
         <FlatList
           horizontal={true}
-          data={movies.splice(0, 3)}
+          data={movies}
           renderItem={({ item }) => <MoviePoster movie={item} />}
           keyExtractor={(movie) => movie.id}
           extraData={isLoading}

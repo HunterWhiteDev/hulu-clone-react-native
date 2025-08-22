@@ -38,7 +38,7 @@ export default function LoginScreen() {
       <Image
         style={styles.image}
         source={{
-          uri: "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png",
+          uri: "https://www.pngmart.com/files/23/Hulu-Logo-PNG-File.png",
         }}
       />
 
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "red",
+    backgroundColor: "#12874d",
     color: "red",
     marginTop: 10,
     padding: 10,

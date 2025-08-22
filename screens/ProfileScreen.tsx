@@ -126,7 +126,7 @@ const ProfileScreen = ({ navigation }) => {
         <Pressable>
           <Text
             style={{
-              backgroundColor: "red",
+              backgroundColor: "#12874d",
               textAlign: "center",
               fontSize: 24,
               color: "white",
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
 
   productButton: {
     padding: 10,
-    backgroundColor: "red",
+    backgroundColor: "#12874d",
     borderRadius: 2.5,
   },
 });
